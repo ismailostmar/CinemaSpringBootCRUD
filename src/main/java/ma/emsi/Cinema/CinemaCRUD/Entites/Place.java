@@ -19,4 +19,5 @@ public class Place {
     private Salle salle;
     @OneToMany(mappedBy = "place")
     private Collection<Ticket> tickets;
+
 }

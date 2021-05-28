@@ -22,4 +22,5 @@ public class Ticket {
     private Place place;
     @ManyToOne
     private Projection projection;
+
 }

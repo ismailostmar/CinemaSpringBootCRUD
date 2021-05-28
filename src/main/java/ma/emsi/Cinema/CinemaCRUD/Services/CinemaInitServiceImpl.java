@@ -18,6 +18,7 @@ import java.util.stream.Stream;
 @Transactional
 public class CinemaInitServiceImpl implements ICinemaInitService {
 
+
     @Autowired
     private VilleRepository villeRepository;
 

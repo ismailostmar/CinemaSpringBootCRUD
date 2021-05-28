@@ -1,5 +1,6 @@
 package ma.emsi.Cinema.CinemaCRUD;
 
+
 import ma.emsi.Cinema.CinemaCRUD.Services.ICinemaInitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

@@ -10,4 +10,5 @@ public interface ICinemaInitService {
     void initCategories();
     void initProjections();
     void initTickets();
+
 }

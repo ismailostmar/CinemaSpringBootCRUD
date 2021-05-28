@@ -18,4 +18,5 @@ public class Ville {
     private double longitude,latitude,altitude;
     @OneToMany
     private Collection<Cinema> cinemas;
+
 }

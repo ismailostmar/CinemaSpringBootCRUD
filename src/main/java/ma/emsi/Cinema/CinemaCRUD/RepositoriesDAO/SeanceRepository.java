@@ -8,3 +8,4 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 public interface SeanceRepository extends JpaRepository<Seance,Long> {
 
 }
+
