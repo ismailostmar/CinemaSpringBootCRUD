@@ -166,6 +166,4 @@ public class CinemaInitServiceImpl implements ICinemaInitService {
             });
         });
     }
-
-
 }
