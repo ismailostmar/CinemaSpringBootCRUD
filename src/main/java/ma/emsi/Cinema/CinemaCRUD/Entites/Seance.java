@@ -15,7 +15,7 @@ public class Seance {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @JsonFormat(pattern = "HH:mm")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.TIME)
     private Date heureDebut;
 
 }
