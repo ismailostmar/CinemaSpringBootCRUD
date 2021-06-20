@@ -22,5 +22,4 @@ public class Film {
     private Collection<Projection> projections;
     @ManyToOne
     private Categorie categorie;
-
 }
