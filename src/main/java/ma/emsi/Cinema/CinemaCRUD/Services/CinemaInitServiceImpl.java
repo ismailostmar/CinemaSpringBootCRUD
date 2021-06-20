@@ -13,7 +13,7 @@ import java.util.Random;
 import java.util.stream.Stream;
 
 @Service
-@Transactional
+@Transactional // chaque fois j'appelle une methode je fais un commit ou rollback sa depend on l'appelle transaction
 public class CinemaInitServiceImpl implements ICinemaInitService {
 
 
@@ -115,6 +115,9 @@ public class CinemaInitServiceImpl implements ICinemaInitService {
                 });
     }
 
+    /* Une Methode Transactionnelle
+    en utilisant le mode lazy au niveau de la recherche d'une cinema dans une ville
+    * */
     @Override
     public void initProjections() {
         double[] prices = new double[]{30, 50, 60, 70, 90, 100};

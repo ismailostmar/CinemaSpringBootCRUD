@@ -15,7 +15,8 @@ public class CinemaCrudApplication implements CommandLineRunner {
 		SpringApplication.run(CinemaCrudApplication.class, args); }
 
 	@Override
-	public void run(String... args) throws Exception {
+	public void run(String... args) throws Exception
+	{
 		cinemaInitService.initVilles();
 		cinemaInitService.initCinema();
 		cinemaInitService.initSalles();
@@ -24,8 +25,5 @@ public class CinemaCrudApplication implements CommandLineRunner {
 		cinemaInitService.initFilms();
 		cinemaInitService.initProjections();
 		cinemaInitService.initTickets();
-
-
-
 	}
 }
