@@ -91,7 +91,7 @@ public class CinemaInitServiceImpl implements ICinemaInitService {
     @Override
     public void initSeances() {
         DateFormat dateFormat = new SimpleDateFormat("HH:mm");
-        Stream.of("20.30", "15.24", "10.00", "23.00").forEach(s -> {
+        Stream.of("20:30", "15:24", "10:00", "23:00").forEach(s -> {
             Seance seance = new Seance();
             try {
                 seance.setHeureDebut(dateFormat.parse(s));
