@@ -13,6 +13,7 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(length = 30)
     private String nomClient;
     private double price;
     @Column(unique = true)

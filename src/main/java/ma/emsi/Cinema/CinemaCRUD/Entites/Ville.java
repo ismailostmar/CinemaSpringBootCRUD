@@ -14,6 +14,7 @@ public class Ville {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(length = 30)
     private String name;
     private double longitude,latitude,altitude;
     @OneToMany

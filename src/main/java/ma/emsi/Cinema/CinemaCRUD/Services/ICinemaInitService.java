@@ -7,7 +7,6 @@ public interface ICinemaInitService {
     void initPlaces();
     void initSeances();
     void initFilms();
-    void initCategories();
     void initProjections();
     void initTickets();
 

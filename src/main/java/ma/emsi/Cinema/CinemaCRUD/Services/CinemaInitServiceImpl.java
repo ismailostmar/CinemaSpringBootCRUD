@@ -4,13 +4,11 @@ import ma.emsi.Cinema.CinemaCRUD.Entites.*;
 import ma.emsi.Cinema.CinemaCRUD.RepositoriesDAO.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 import java.util.Random;
 import java.util.stream.Stream;
 
@@ -39,9 +37,6 @@ public class CinemaInitServiceImpl implements ICinemaInitService {
 
     @Autowired
     private ProjectionRepository projectionRepository;
-
-    @Autowired
-    private CategorieRepository categorieRepository;
 
     @Autowired
     private TicketRepository ticketRepository;
@@ -110,25 +105,14 @@ public class CinemaInitServiceImpl implements ICinemaInitService {
     @Override
     public void initFilms() {
         double[] durees = new double[]{1, 1.5, 2, 2.5, 3};
-        List<Categorie> categories = categorieRepository.findAll();
         Stream.of("LAST MAN STAND", " JOHN WICK 1", " JOHN WICK 2 ", " JOHN WICK 3")
                 .forEach(titre -> {
                     Film film = new Film();
                     film.setTitre(titre);
                     film.setTime(durees[new Random().nextInt(durees.length)]);
                     film.setPhoto(titre.replaceAll(" ", "") + ".jpg");
-                    film.setCategorie(categories.get(new Random().nextInt(categories.size())));
                     filmRepository.save(film);
                 });
-    }
-
-    @Override
-    public void initCategories() {
-        Stream.of("History", "Action", "Science-Fiction", "Drama").forEach(cat -> {
-            Categorie categorie = new Categorie();
-            categorie.setName(cat);
-            categorieRepository.save(categorie);
-        });
     }
 
     @Override

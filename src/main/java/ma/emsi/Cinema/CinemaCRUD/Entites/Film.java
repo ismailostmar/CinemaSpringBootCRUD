@@ -13,13 +13,13 @@ public class Film {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String titre;
+    private String Categorie;
     private String description;
+    @Column(length = 20)
     private String realisator;
-    private double time;
     private String photo;
+    private String titre;
+    private double time;
     @OneToMany(mappedBy = "film")
     private Collection<Projection> projections;
-    @ManyToOne
-    private Categorie categorie;
 }
