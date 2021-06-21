@@ -18,12 +18,11 @@ public class Ticket {
     private String nomClient;
     private double price;
     @Column(unique = false , nullable = true)
-    private Integer codePayment; //int = 0   Integer = null
+    private int codePayment; //int = 0   Integer = null
     private boolean reserve;
     @ManyToOne
     private Place place;
     @ManyToOne
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Projection projection;
 
 }
