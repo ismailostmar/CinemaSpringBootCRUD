@@ -105,7 +105,7 @@ public class CinemaInitServiceImpl implements ICinemaInitService {
     @Override
     public void initFilms() {
         double[] durees = new double[]{1, 1.5, 2, 2.5, 3};
-        Stream.of("LAST MAN STAND", " JOHN WICK 1", " JOHN WICK 2 ", " JOHN WICK 3")
+        Stream.of("JOHNWICK1", " JOHNWICK2", " JOHNWICK3", "LASTMANSTANDING")
                 .forEach(titre -> {
                     Film film = new Film();
                     film.setTitre(titre);

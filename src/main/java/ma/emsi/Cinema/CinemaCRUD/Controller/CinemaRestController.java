@@ -27,12 +27,13 @@ public class CinemaRestController {
     private TicketRepository ticketRepository;
 
     @GetMapping(path = "/imageFilm/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
+    // Tableau de Byte pour les Images
     public byte[] image(@PathVariable(name = "id") Long id) throws Exception {
         Film f = filmRepository.findById(id).get();
         String photoName = f.getPhoto();
         File file = new File(System.getProperty("user.home") + "/cinema/images/" + photoName);
         Path path = Paths.get(file.toURI());
-        return Files.readAllBytes(path);
+        return Files.readAllBytes(path); // retourne un tableaux d'octets
     }
 
     @Data
@@ -45,6 +46,7 @@ public class CinemaRestController {
 
     @PostMapping("/payerTickets")
     @Transactional
+    // les données de tickets sont envoyé au format JSON à l'aide de l'annotation RequestBody
     public List<Ticket> payerTickets(@RequestBody TicketForm ticketForm) {
         List<Ticket> listTickets = new ArrayList<>();
         ticketForm.getTickets().forEach(idTicket -> {

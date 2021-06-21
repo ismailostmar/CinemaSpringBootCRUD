@@ -1,5 +1,6 @@
 package ma.emsi.Cinema.CinemaCRUD.Entites;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,5 +22,6 @@ public class Film {
     private String titre;
     private double time;
     @OneToMany(mappedBy = "film")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Collection<Projection> projections;
 }
