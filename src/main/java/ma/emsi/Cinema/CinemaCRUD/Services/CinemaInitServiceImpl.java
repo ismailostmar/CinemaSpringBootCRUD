@@ -53,7 +53,7 @@ public class CinemaInitServiceImpl implements ICinemaInitService {
     @Override
     public void initCinema() {
         villeRepository.findAll().forEach(v -> {
-            Stream.of("MegaRama", "IMAX", "SAADA", "CINEMAELHAY").forEach(nameCinema -> {
+            Stream.of("MEGARAMA", "IMAX", "SAADA", "CHAHRAZAD").forEach(nameCinema -> {
                 Cinema cinema = new Cinema();
                 cinema.setName(nameCinema);
                 cinema.setNombreSalles(3 + (int) (Math.random() * 7)); // 0   1
