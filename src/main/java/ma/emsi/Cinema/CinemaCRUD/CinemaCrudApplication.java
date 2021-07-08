@@ -21,6 +21,7 @@ public class CinemaCrudApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception
 	{
+		// A chaque fois il serialise un Film il va integré le ID
 		restConfiguration.exposeIdsFor(Film.class);
 		cinemaInitService.initVilles();
 		cinemaInitService.initCinema();
