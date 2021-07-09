@@ -15,7 +15,8 @@ import java.util.Random;
 import java.util.stream.Stream;
 
 @Service
-@Transactional // chaque fois j'appelle une methode je fais un commit ou rollback sa depend on l'appelle transaction
+@Transactional
+        // chaque fois j'appelle une methode je fais un commit ou rollback sa depend on l'appelle transaction
 public class CinemaInitServiceImpl implements ICinemaInitService {
 
 
