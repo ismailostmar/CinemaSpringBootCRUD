@@ -1,6 +1,7 @@
 package ma.emsi.Cinema.CinemaCRUD;
 
 import ma.emsi.Cinema.CinemaCRUD.Entites.Film;
+import ma.emsi.Cinema.CinemaCRUD.Entites.Salle;
 import ma.emsi.Cinema.CinemaCRUD.Services.ICinemaInitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -22,7 +23,7 @@ public class CinemaCrudApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception
 	{
 		// A chaque fois il serialise un Film il va integré le ID
-		restConfiguration.exposeIdsFor(Film.class);
+		restConfiguration.exposeIdsFor(Film.class, Salle.class);
 		cinemaInitService.initVilles();
 		cinemaInitService.initCinema();
 		cinemaInitService.initSalles();
