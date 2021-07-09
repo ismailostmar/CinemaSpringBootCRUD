@@ -4,11 +4,13 @@ import ma.emsi.Cinema.CinemaCRUD.Entites.*;
 import ma.emsi.Cinema.CinemaCRUD.RepositoriesDAO.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import javax.transaction.Transactional;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 import java.util.stream.Stream;
 
@@ -121,19 +123,20 @@ public class CinemaInitServiceImpl implements ICinemaInitService {
     @Override
     public void initProjections() {
         double[] prices = new double[]{30, 50, 60, 70, 90, 100};
+        List<Film> films = filmRepository.findAll();
         villeRepository.findAll().forEach(ville -> {
             ville.getCinemas().forEach(cinema -> {
                 cinema.getSalles().forEach(salle -> {
-                    filmRepository.findAll().forEach(film -> {
-                        seanceRepository.findAll().forEach(seance -> {
-                            Projection projection = new Projection();
-                            projection.setDateProjection(new Date());
-                            projection.setFilm(film);
-                            projection.setPrice(prices[new Random().nextInt(prices.length)]);
-                            projection.setSalle(salle);
-                            projection.setSeance(seance);
-                            projectionRepository.save(projection);
-                        });
+                    int index = new Random().nextInt(films.size());
+                    Film film = films.get(index);
+                    seanceRepository.findAll().forEach(seance -> {
+                        Projection projection = new Projection();
+                        projection.setDateProjection(new Date());
+                        projection.setFilm(film);
+                        projection.setPrice(prices[new Random().nextInt(prices.length)]);
+                        projection.setSalle(salle);
+                        projection.setSeance(seance);
+                        projectionRepository.save(projection);
                     });
                 });
             });
